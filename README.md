@@ -71,9 +71,24 @@ We unify the space of LLM-based **conversational user simulation** along three a
 - \[[ArXiv](https://arxiv.org/abs/2411.10006)\] Orca: Enhancing Role-Playing Abilities of Large Language Models by Integrating Personality Traits. `2024.11`
 - \[[ArXiv](https://arxiv.org/abs/2304.05335)\] Toxicity in ChatGPT: Analyzing Persona-assigned Language Models. `2023.04`
 
-
 - **Role-play** → real/fictional identities via latent persona induction  
+- \[[ArXiv](https://arxiv.org/abs/2404.12138)\] Character is Destiny: Can Role-Playing Language Agents Make Persona-Driven Decisions?. `2024.11`
+- \[[ArXiv](https://arxiv.org/abs/2304.03442)\] Generative Agents: Interactive Simulacra of Human Behavior. `2023.08`
+- \[[ArXiv](https://arxiv.org/abs/2503.23514)\] If an LLM Were a Character, Would It Know Its Own Story? Evaluating Lifelong Learning in LLMs. `2025.03`
+- \[[ACL](https://aclanthology.org/2025.coling-main.494/)\] RoleBreak: Character Hallucination as a Jailbreak Attack in Role-Playing Systems. `2025.01`
+- \[[ArXiv](https://arxiv.org/abs/2406.17260)\] Mitigating Hallucination in Fictional Character Role-Play. `2024.11`
+- \[[ArXiv](https://arxiv.org/abs/2405.14231)\] From Role-Play to Drama-Interaction: An LLM Solution. `2024.05`
+
 - **Individual User** → profile/history/memory grounded  
+- \[[ArXiv](https://arxiv.org/abs/1801.07243)\] Personalizing Dialogue Agents: I have a dog, do you have pets too?. `2018.09`
+- \[[ArXiv](https://arxiv.org/abs/2112.08619)\] Call for Customized Conversation: Customized Conversation Grounding Persona and Knowledge. `2022.05`
+- \[[ArXiv](https://arxiv.org/abs/2103.09534)\] Dialogue History Matters! Personalized Response Selectionin Multi-turn Retrieval-based Chatbots. `2021.03`
+- \[[ArXiv](https://arxiv.org/abs/2107.07567)\] Beyond Goldfish Memory: Long-Term Open-Domain Conversation. `2021.07`
+- \[[ArXiv](https://arxiv.org/abs/2504.19413)\] Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory. `2025.04`
+- \[[ACL](https://aclanthology.org/2023.paclic-1.85/)\] RealPersonaChat: A Realistic Persona Chat Corpus with Interlocutors’ Own Personalities. `2023.12`
+- \[[ACL](https://aclanthology.org/2023.acl-long.858/)\] LiveChat: A Large-Scale Personalized Dialogue Dataset Automatically Constructed from Live Streaming. `2023.07`
+
+
 - **Hybrid** → mixtures for multi-agent/multi-party realism
 
 **What (Interaction Settings):**
