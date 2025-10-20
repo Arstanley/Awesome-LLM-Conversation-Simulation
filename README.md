@@ -17,11 +17,11 @@ It curates papers, taxonomies, and benchmarks for conversational user simulation
 
 ---
 
-## 📜 Paper
+## 📜 Survey
 **Large Language Models for Conversational User Simulation: A Comprehensive Survey**  
 Bo Ni, Leyao Wang, Yu Wang, Branislav Kveton, Franck Dernoncourt, Yu Xia, Hongjie Chen, Reuben Leura, Samyadeep Basu, Subhojyoti Mukherjee, Puneet Mathur, Nesreen Ahmed, Junda Wu, Li Li, Huixin Zhang, Ruiyi Zhang, Tong Yu, Sungchul Kim, Jiuxiang Gu, Zhengzhong Tu, Alexa Siu, Zichao Wang, David Seunghyun Yoon, Nedim Lipka, Namyong Park, Zihao Lin, Trung Bui, Yue Zhao, Tyler Derr, Ryan A. Rossi
 
-- **PDF**: (add link to arXiv/website once available)
+- **[PDF](https://hal.science/hal-05217179)** 
 - **BibTeX**: see [📚 Cite Us](#-cite-us)
 - **Keywords**: user simulation, LLM agents, persona, role-play, memory, RAG, RLHF/DPO, LLM-as-Judge
 
@@ -51,14 +51,27 @@ We unify the space of LLM-based **conversational user simulation** along three a
 - **What** is simulated? → _Human–AI • Human–Human • AI–AI • Many-Human–AI • Hybrid_
 - **How** is it simulated? → _Prompting • RAG • Fine-tuning • RL/DPO • Hybrid stacks_
 
-We catalog methods, datasets, and evaluation protocols, and highlight open challenges in **long-horizon coherence**, **diversity & bias**, and **safety/trustworthiness**.
-
 ---
 
 ## Taxonomy
 **Who (Targets):**
 - **General User** → average, unconditioned behavior  
+- \[[arxiv](https://arxiv.org/abs/2305.18290)\] Direct Preference Optimization: Your Language Model is Secretly a Reward Model. `2023.05`
+- \[[arxiv](https://arxiv.org/abs/2403.02502)\] Trial and Error: Exploration-Based Trajectory Optimization for LLM Agents. `2024.03`
+- \[[arxiv](https://arxiv.org/abs/2409.02392)\] Building Math Agents with Multi-Turn Iterative Preference Learning. `2024.09`
+- \[[arxiv](https://arxiv.org/abs/2502.01600)\] Reinforcement Learning for Long-Horizon Interactive LLM Agents. `2025.02`
+
 - **Persona-level** → demographic/trait-grounded prompts  
+- \[[ACL](https://aclanthology.org/2024.acl-long.554/)\] Quantifying the Persona Effect in LLM Simulations. `2024.08`
+- \[[ACM](https://dl.acm.org/doi/10.1145/3708985)\] User Behavior Simulation with Large Language Model-based Agents. `2025.01`
+- \[[ArXiv](https://arxiv.org/abs/2206.07550)\] Evaluating and Inducing Personality in Pre-trained Language Models. `2023.05`
+- \[[ArXiv](https://arxiv.org/abs/2305.02547)\] PersonaLLM: Investigating the Ability of Large Language Models to Express Personality Traits. `2023.05`
+- \[[ArXiv](https://arxiv.org/abs/2307.00184)\] Personality Traits in Large Language Models. `2023.07`
+- \[[ArXiv](https://arxiv.org/abs/2406.12216)\] Is persona enough for personality? Using ChatGPT to reconstruct an agent's latent personality from simple descriptions. `2024.06`
+- \[[ArXiv](https://arxiv.org/abs/2411.10006)\] Orca: Enhancing Role-Playing Abilities of Large Language Models by Integrating Personality Traits. `2024.11`
+- \[[ArXiv](https://arxiv.org/abs/2304.05335)\] Toxicity in ChatGPT: Analyzing Persona-assigned Language Models. `2023.04`
+
+
 - **Role-play** → real/fictional identities via latent persona induction  
 - **Individual User** → profile/history/memory grounded  
 - **Hybrid** → mixtures for multi-agent/multi-party realism
