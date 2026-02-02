@@ -30,16 +30,29 @@ Bo Ni, Leyao Wang, Yu Wang, Branislav Kveton, Franck Dernoncourt, Yu Xia, Hongji
 ## 🗂️ Contents
 - [TL;DR](#tldr)
 - [Taxonomy](#taxonomy)
-- [Techniques (“How”)](#techniques-how)
-- [Interaction Settings (“What”)](#interaction-settings-what)
-- [Targets (“Who”)](#targets-who)
-- [Evaluation](#evaluation)
-- [Datasets](#datasets)
-- [Applications](#applications)
-- [Open Problems](#open-problems)
+- [Who: Simulation Targets](#who-simulation-targets)
+  - [General User](#general-user)
+  - [Persona-level](#persona-level)
+  - [Role-play](#role-play)
+  - [Individual User](#individual-user)
+  - [Hybrid](#hybrid-simulation)
+- [What: Interaction Settings](#what-interaction-settings)
+  - [Human–AI](#humanai-simulation)
+  - [Human–Human](#humanhuman-simulation)
+  - [AI–AI](#aiai-simulation)
+  - [Many-Human–AI](#many-humanai-simulation)
+- [How: Techniques](#how-techniques)
+  - [Prompting](#prompting)
+  - [RAG & Retrieval](#rag--retrieval)
+  - [Fine-tuning](#fine-tuning)
+  - [RL/DPO](#rldpo)
+  - [Hybrid Approaches](#hybrid-approaches)
+- [Evaluation](#-evaluation)
+- [Datasets](#-datasets)
+- [Applications](#-applications)
+- [Open Problems](#-open-problems)
 - [Cite Us](#-cite-us)
 - [Contributing](#-contributing)
-- [Star History](#star-history)
 - [License](#license)
 
 ---
@@ -54,109 +67,204 @@ We unify the space of LLM-based **conversational user simulation** along three a
 ---
 
 ## Taxonomy
-**Who (Targets):**
-- **General User** → average, unconditioned behavior  
-- \[[arxiv](https://arxiv.org/abs/2305.18290)\] Direct Preference Optimization: Your Language Model is Secretly a Reward Model. `2023.05`
-- \[[arxiv](https://arxiv.org/abs/2403.02502)\] Trial and Error: Exploration-Based Trajectory Optimization for LLM Agents. `2024.03`
-- \[[arxiv](https://arxiv.org/abs/2409.02392)\] Building Math Agents with Multi-Turn Iterative Preference Learning. `2024.09`
-- \[[arxiv](https://arxiv.org/abs/2502.01600)\] Reinforcement Learning for Long-Horizon Interactive LLM Agents. `2025.02`
 
-- **Persona-level** → demographic/trait-grounded prompts  
-- \[[ACL](https://aclanthology.org/2024.acl-long.554/)\] Quantifying the Persona Effect in LLM Simulations. `2024.08`
-- \[[ACM](https://dl.acm.org/doi/10.1145/3708985)\] User Behavior Simulation with Large Language Model-based Agents. `2025.01`
-- \[[ArXiv](https://arxiv.org/abs/2206.07550)\] Evaluating and Inducing Personality in Pre-trained Language Models. `2023.05`
-- \[[ArXiv](https://arxiv.org/abs/2305.02547)\] PersonaLLM: Investigating the Ability of Large Language Models to Express Personality Traits. `2023.05`
-- \[[ArXiv](https://arxiv.org/abs/2307.00184)\] Personality Traits in Large Language Models. `2023.07`
-- \[[ArXiv](https://arxiv.org/abs/2406.12216)\] Is persona enough for personality? Using ChatGPT to reconstruct an agent's latent personality from simple descriptions. `2024.06`
-- \[[ArXiv](https://arxiv.org/abs/2411.10006)\] Orca: Enhancing Role-Playing Abilities of Large Language Models by Integrating Personality Traits. `2024.11`
-- \[[ArXiv](https://arxiv.org/abs/2304.05335)\] Toxicity in ChatGPT: Analyzing Persona-assigned Language Models. `2023.04`
+The survey organizes conversational user simulation research across three dimensions:
 
-- **Role-play** → real/fictional identities via latent persona induction  
-- \[[ArXiv](https://arxiv.org/abs/2404.12138)\] Character is Destiny: Can Role-Playing Language Agents Make Persona-Driven Decisions?. `2024.11`
-- \[[ArXiv](https://arxiv.org/abs/2304.03442)\] Generative Agents: Interactive Simulacra of Human Behavior. `2023.08`
-- \[[ArXiv](https://arxiv.org/abs/2503.23514)\] If an LLM Were a Character, Would It Know Its Own Story? Evaluating Lifelong Learning in LLMs. `2025.03`
-- \[[ACL](https://aclanthology.org/2025.coling-main.494/)\] RoleBreak: Character Hallucination as a Jailbreak Attack in Role-Playing Systems. `2025.01`
-- \[[ArXiv](https://arxiv.org/abs/2406.17260)\] Mitigating Hallucination in Fictional Character Role-Play. `2024.11`
-- \[[ArXiv](https://arxiv.org/abs/2405.14231)\] From Role-Play to Drama-Interaction: An LLM Solution. `2024.05`
-
-- **Individual User** → profile/history/memory grounded  
-- \[[ArXiv](https://arxiv.org/abs/1801.07243)\] Personalizing Dialogue Agents: I have a dog, do you have pets too?. `2018.09`
-- \[[ArXiv](https://arxiv.org/abs/2112.08619)\] Call for Customized Conversation: Customized Conversation Grounding Persona and Knowledge. `2022.05`
-- \[[ArXiv](https://arxiv.org/abs/2103.09534)\] Dialogue History Matters! Personalized Response Selectionin Multi-turn Retrieval-based Chatbots. `2021.03`
-- \[[ArXiv](https://arxiv.org/abs/2107.07567)\] Beyond Goldfish Memory: Long-Term Open-Domain Conversation. `2021.07`
-- \[[ArXiv](https://arxiv.org/abs/2504.19413)\] Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory. `2025.04`
-- \[[ACL](https://aclanthology.org/2023.paclic-1.85/)\] RealPersonaChat: A Realistic Persona Chat Corpus with Interlocutors’ Own Personalities. `2023.12`
-- \[[ACL](https://aclanthology.org/2023.acl-long.858/)\] LiveChat: A Large-Scale Personalized Dialogue Dataset Automatically Constructed from Live Streaming. `2023.07`
-
-
-- **Hybrid** → mixtures for multi-agent/multi-party realism
-
-**What (Interaction Settings):**
-- **Human–AI**, **Human–Human**, **AI–AI**, **Many-Human–AI**, **Hybrid**
-
-**How (Techniques):**
-- **Prompt-based** (zero/few-shot, CoT, persona/task prompts)  
-- **RAG** (always-on vs. adaptive vs. goal/memory-driven retrieval)  
-- **Fine-tuning** (full, PEFT, interaction-optimized)  
-- **RL/DPO** (reward modeling, preference optimization, hierarchical control)  
-- **Hybrid** (e.g., RAG-finetune, prompt→finetune, RAG + RL/DPO)
-
-> _See paper for formal definitions, training objectives, and method groupings._
+**1. Who (Simulation Targets)** — what kind of user is being simulated
+**2. What (Interaction Settings)** — what type of conversational interaction
+**3. How (Technical Approaches)** — what methods are used to build the simulator
 
 ---
 
-## Techniques (“How”)
-- **Prompting:** conditional modeling with context \(history, persona, exemplars\); CoT for deliberation.
-- **RAG:** retrieval triggers (always-on/adaptive/goal-driven) to ground utterances in knowledge/memory.
-- **Fine-tuning:** supervised learning over \((C_{t-1}, \Psi_p, I, u_t)\) for simulator policies.
-- **RL/DPO:** optimize multi-turn strategies and personalization via reward/preference signals.
-- **Hybrid:** pipelines combining the above for control, grounding, and efficiency.
+## Who: Simulation Targets
+
+### General User
+
+General user simulation models average behavior from a broad population without specific persona conditioning.
+
+- [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290). `2023`
+- [Trial and Error: Exploration-Based Trajectory Optimization for LLM Agents](https://arxiv.org/abs/2403.02502). `2024`
+- [Building Math Agents with Multi-Turn Iterative Preference Learning](https://arxiv.org/abs/2409.02392). `2024`
+- [Reinforcement Learning for Long-Horizon Interactive LLM Agents](https://arxiv.org/abs/2502.01600). `2025`
+
+### Persona-level
+
+Persona-level simulation conditions behavior on explicit demographic, psychometric, or stylistic attributes.
+
+- [When crowd meets persona: Creating a large-scale open-domain persona dialogue corpus](https://arxiv.org/abs/2304.00350). `2023`
+- [Synthetic patient-physician dialogue generation from clinical notes using LLM](https://arxiv.org/abs/2408.06285). `2024`
+- [Simulating users’ interactions with recommender systems](https://arxiv.org/abs/2411.05194). `2022`
+- Quantifying the persona effect in LLM simulations. `2024`
+- [Orca: Enhancing role-playing abilities of large language models by integrating per- sonality traits](https://arxiv.org/abs/2411.10006). `2024`
+- [Truncated importance sampling](https://arxiv.org/abs/2503.17662). `2008`
+- Is persona enough for personality? using chatgpt to reconstruct an agent’s latent personality from simple descriptions. `2024`
+- [Personallm: In- vestigating the ability of large language models to express personality traits](https://arxiv.org/abs/2504.17993). `2024`
+- [A frame- work for building adaptive intelligent virtual assis- tants](https://arxiv.org/abs/1706.05125). `2014`
+- [mind](https://arxiv.org/abs/2503.16527). `2025`
+- [Prophetchat: Enhancing dialogue generation with simulation of future conversation](https://arxiv.org/abs/2502.11528). `2022`
+- [Be- yond goldfish memory: Long-term open-domain con- versation](https://arxiv.org/abs/2404.12138). `2022`
+
+### Role-play
+
+Role-play simulation enables LLMs to embody real or fictional identities through latent persona induction.
+
+- [If an LLM were a character, would it know its own story? evaluating lifelong learning in llms](https://arxiv.org/abs/2503.23514). `2025`
+- Bleu: a method for automatic evalu- ation of machine translation. `2002`
+- [Agentsociety: Large-scale simulation of llm-driven generative agents advances understanding of human behaviors and society](https://arxiv.org/abs/2502.08691). `2025`
+- Role- break: Character hallucination as a jailbreak attack in role-playing systems. `2025`
+- [Rolecraft-glm: Advancing person- alized role-playing in large language models](https://arxiv.org/abs/2401.09432). `2024`
+- Char- actereval: A chinese benchmark for role-playing con- versational agent evaluation. `2024`
+- [A neural conver- sational model](https://arxiv.org/abs/2504.03206). `2015`
+- [Autogen: En- abling next-gen LLM applications via multi-agent conversation framework](https://arxiv.org/abs/2308.08155). `2023`
+
+### Individual User
+
+Individual user simulation grounds behavior in specific user profiles, histories, and long-term memory.
+
+- [Soulchat: Improving llms’ empathy, listening, and comfort abilities through fine-tuning with multi-turn empathy conversations](https://arxiv.org/abs/2504.19413). `2023`
+- [Personalizing Dialogue Agents: I have a dog, do you have pets too?](https://arxiv.org/abs/1801.07243). `2018`
+- [Call for Customized Conversation: Customized Conversation Grounding Persona and Knowledge](https://arxiv.org/abs/2112.08619). `2022`
+- [Beyond Goldfish Memory: Long-Term Open-Domain Conversation](https://arxiv.org/abs/2107.07567). `2021`
+- [Soulchat: Improving llms’ empathy, listening, and comfort abilities through fine-tuning with multi-turn empathy conversations](https://arxiv.org/abs/2504.19413). `2023`
+
+### Hybrid Simulation
+
+Hybrid approaches combine multiple simulation targets for richer, more realistic agent behavior.
 
 ---
 
-## Interaction Settings (“What”)
-- **Human–AI**: user prompts ↔ assistant responses; scalable data synthesis, evaluation scaffolds.  
-- **Human–Human**: two-party dialogues for persona consistency and grounded conversation patterns.  
-- **AI–AI**: self-play/debate/collaboration; emergent behavior and large-scale generation.  
-- **Many-Human–AI**: group dynamics, collaborative tasks, meeting simulations.  
-- **Hybrid**: ecosystem simulations (e.g., agent towns) mixing settings.
+## What: Interaction Settings
+
+### Human–AI Simulation
+
+Models turn-based interactions where users prompt and AI systems respond.
+
+- [Human-ai interaction in lan- guage acquisition: Evaluating llm as a language part- ner](https://arxiv.org/abs/2402.10453). `2025`
+
+### Human–Human Simulation
+
+Models natural dialogues between two human participants.
+
+- Validating synthetic usage data in living lab envi- ronments. `2024`
+- A dynamic bayesian network click model for web search ranking. `2009`
+- Livechat: A large-scale per- sonalized dialogue dataset automatically constructed from live streaming. `2023`
+- Platolm: Teaching llms in multi-round dialogue via a user simulator. `2024`
+- [PersonaChat: A Conversational Dialogue Dataset](https://arxiv.org/abs/1801.07243). `2018`
+- [Wizard of Wikipedia: Knowledge-Powered Conversational Agents](https://openreview.net/forum?id=r1l73iRqKm). `2019`
+- [EmpatheticDialogues: An Emotional Conversation Dataset](https://arxiv.org/abs/1811.00207). `2019`
+- [MultiWOZ: A Large-Scale Multi-Domain Wizard-of-Oz Dataset](https://arxiv.org/abs/1810.00278). `2018`
+
+### AI–AI Simulation
+
+Models conversations where both participants are autonomous AI agents, enabling self-play and debate.
+
+- Improving factuality and reasoning in language models through multiagent debate. `2024`
+- [A survey on llm-as-a-judge](https://arxiv.org/abs/2411.15594). `2024`
+- [Beyond static responses: Multi-agent LLM systems as a new paradigm for social science research](https://arxiv.org/abs/2506.01839). `2025`
+- [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442). `2023`
+- [Improving Factuality and Reasoning via Multi-Agent Debate](https://arxiv.org/abs/2305.14325). `2023`
+
+### Many-Human–AI Simulation
+
+Models group dynamics with multiple humans interacting with AI systems.
 
 ---
 
-## Targets (“Who”)
-- **General** → default user policy  
-- **Persona** → explicit traits (psychometric, demographic, style)  
-- **Role-play** → latent identity embedding from a natural-language handle  
-- **Individual** → user-specific memory/profile/history grounding  
-- **Hybrid** → blend for realism and diversity
+## How: Techniques
+
+### Prompting
+
+Prompt-based methods use zero-shot, few-shot, and chain-of-thought prompting to condition LLM behavior.
+
+- Let the llms talk: Simulating human-to-human conversational QA via zero-shot llm-to-llm interactions. `2024`
+- [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/abs/2201.11903). `2022`
+- [In-Context Learning User Simulators for Task-Oriented Dialog Systems](https://arxiv.org/abs/2306.00774). `2023`
+
+### RAG & Retrieval
+
+Retrieval-augmented generation (RAG) grounds user simulation in external knowledge and memory.
+
+- User sim- ulation for evaluating information access systems. `2023`
+- [User simulation in the era of generative AI: user model- ing, synthetic data generation, and system evaluation](https://arxiv.org/abs/2501.04410). `2025`
+- Kaucus-knowledgeable user simulators for training large language models. `2024`
+- Preference-based learning with retrieval augmented generation for conversational question answering. `2025`
+- [Maximizing the spread of influence through a social network](https://arxiv.org/abs/2412.01992). `2003`
+- [Predicting clicks: estimating the click- through rate for new ads](https://arxiv.org/abs/1808.00720). `2007`
+- [Retrieval-augmented simulacra: Gen- erative agents for up-to-date and knowledge-adaptive simulations](https://arxiv.org/abs/2503.14620). `2025`
+
+### Fine-tuning
+
+Supervised and parameter-efficient fine-tuning adapt LLMs to user simulation tasks.
+
+- [Build- ing math agents with multi-turn iterative preference learning](https://arxiv.org/abs/2405.13001). `2025`
+- [Self-Instruct: Aligning Language Models with Self-Generated Instructions](https://arxiv.org/abs/2212.10560). `2022`
+- [WizardLM: Empowering Large Language Models to Follow Complex Instructions](https://arxiv.org/abs/2304.12244). `2023`
+
+### RL/DPO
+
+Reinforcement learning and direct preference optimization enable multi-turn strategy learning.
+
+- Per- sonalized steering of large language models: Versa- tile steering vectors through bi-directional preference optimization. `2024`
+- [SDPO: segment- level direct preference optimization for social agents](https://arxiv.org/abs/2501.01821). `2025`
+- Design, generation and evaluation of a synthetic dialogue dataset for con- textually aware chatbots in art museums. `2025`
+- [Deep Reinforcement Learning from Human Preferences](https://arxiv.org/abs/1706.03741). `2017`
+- [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290). `2023`
+
+### Hybrid Approaches
+
+Hybrid methods combine prompting, RAG, fine-tuning, and RL/DPO for more capable simulators.
 
 ---
 
 ## 🧪 Evaluation
-- **Traditional**: BLEU/ROUGE/slot-F1 for structure/coverage; human studies for quality.  
-- **LLM-as-Judge**: rubric-guided auto-eval (coherence, factuality, safety); use careful judge prompts, calibration, and meta-evaluation.
+
+### Traditional Metrics
+- **BLEU/ROUGE**: Surface-level text similarity
+- **Slot F1**: Task-oriented dialogue completion  
+- **Human evaluation**: Quality, consistency, safety
+
+### LLM-as-Judge
+
+- [BERT for joint intent classification and slot filling](https://arxiv.org/abs/1902.10909). `2019`
+- Videoau- toarena: An automated arena for evaluating large multimodal models in video analysis through user simulation. `2025`
+- [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685). `2023`
+- [LLM-as-Judge: A Comprehensive Survey](https://arxiv.org/abs/2410.02416). `2024`
 
 ---
 
 ## 📊 Datasets
-Curated across **persona**, **multi-party**, **knowledge-grounded**, **negotiation**, **long-memory**, and **multi-domain** settings.  
-_(Examples: PersonaChat, Wizard-of-Wikipedia, EmpatheticDialogues, MultiWOZ, plus recent role/character and memory datasets.)_
+
+Key conversational datasets used for training and evaluating user simulators:
+
+- Taskmaster-1: To- ward a realistic and diverse dialog dataset. `2019`
+- [PersonaChat](https://arxiv.org/abs/1801.07243). `2018`
+- [Wizard-of-Wikipedia](https://openreview.net/forum?id=r1l73iRqKm). `2019`
+- [EmpatheticDialogues](https://arxiv.org/abs/1811.00207). `2019`
+- [MultiWOZ](https://arxiv.org/abs/1810.00278). `2018`
+- [Taskmaster](https://arxiv.org/abs/1909.05358). `2019`
+- [ABCD](https://arxiv.org/abs/2104.08674). `2021`
 
 ---
 
 ## 🚀 Applications
-- **Data augmentation** with privacy-conscious synthesis  
-- **Conversational recommendation & search**  
-- **Education & tutoring agents**  
-- **HCI prototyping & UI testing**  
-- **Evaluation arenas** (e.g., debate, Elo-style rating)
+
+- Counterfactual reasoning and learning systems: The example of computational advertising. `2013`
+- An experimental comparison of click position-bias models. `2008`
+
+- **Data Augmentation**: Privacy-conscious synthetic dialogue generation
+- **Conversational Recommendation & Search**: Simulating user queries and preferences
+- **Education & Tutoring**: Adaptive learning systems and student simulation
+- **HCI Prototyping**: Testing interfaces and interaction designs
+- **Evaluation Arenas**: Benchmarking via debate, Elo ratings, automated assessment
 
 ---
 
 ## ❗ Open Problems
-- **Long conversations**: persona/memory drift, discourse planning, consistency constraints  
-- **Diversity**: beyond polite/homogeneous behaviors to controlled strategy/emotion/verbosity  
-- **Bias & safety**: demographic sensitivity, toxic content, robust safety protocols
+
+- **Long-horizon consistency**: Maintaining persona and memory across extended conversations
+- **Diversity & strategy**: Moving beyond polite, homogeneous behavior to controllable variation
+- **Bias & safety**: Demographic sensitivity, toxicity mitigation, robust safety protocols
+- **Evaluation**: Better metrics for realism, consistency, and human alignment
 
 ---
 
@@ -168,5 +276,29 @@ _(Examples: PersonaChat, Wizard-of-Wikipedia, EmpatheticDialogues, MultiWOZ, plu
   author       = {Ni, Bo and Wang, Leyao and Wang, Yu and Kveton, Branislav and Dernoncourt, Franck and Xia, Yu and Chen, Hongjie and Leura, Reuben and Basu, Samyadeep and Mukherjee, Subhojyoti and Mathur, Puneet and Ahmed, Nesreen and Wu, Junda and Li, Li and Zhang, Huixin and Zhang, Ruiyi and Yu, Tong and Kim, Sungchul and Gu, Jiuxiang and Tu, Zhengzhong and Siu, Alexa and Wang, Zichao and Yoon, David Seunghyun and Lipka, Nedim and Park, Namyong and Lin, Zihao and Bui, Trung and Zhao, Yue and Derr, Tyler and Rossi, Ryan A.},
   year         = {2025},
   note         = {Survey preprint},
-  howpublished = {\url{<add-link-to-arXiv-or-project-page>}}
+  howpublished = {\url{https://hal.science/hal-05217179}}
 }
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are very welcome! Please:
+1. Fork the repository
+2. Add your paper to the appropriate section with proper formatting
+3. Submit a pull request
+
+**Format**: `- [Paper Title](URL). Authors. *Venue*. 'YEAR'`
+
+---
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Arstanley/Awesome-LLM-Conversation-Simulation&type=Date)](https://star-history.com/#Arstanley/Awesome-LLM-Conversation-Simulation&Date)
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
