@@ -93,16 +93,16 @@ Persona-level simulation conditions behavior on explicit demographic, psychometr
 
 - [When crowd meets persona: Creating a large-scale open-domain persona dialogue corpus](https://arxiv.org/abs/2304.00350). `2023`
 - [Synthetic patient-physician dialogue generation from clinical notes using LLM](https://arxiv.org/abs/2408.06285). `2024`
-- [Simulating users' interactions with recommender systems](https://arxiv.org/abs/2411.05194). `2022`
+- [Interactive Dialogue Agents via Reinforcement Learning on Hindsight Regenerations](https://arxiv.org/abs/2411.05194). `2024`
 - [Quantifying the Persona Effect in LLM Simulations](https://aclanthology.org/2024.acl-long.554/). `2024`
 - [Orca: Enhancing role-playing abilities of large language models by integrating per- sonality traits](https://arxiv.org/abs/2411.10006). `2024`
-- [Truncated importance sampling](https://arxiv.org/abs/2503.17662). `2008`
+- [Enhancing Persona Consistency for LLMs' Role-Playing using Persona-Aware Contrastive Learning](https://arxiv.org/abs/2503.17662). `2025`
 - [Is Persona Enough for Personality? Using ChatGPT to Reconstruct an Agent's Latent Personality](https://arxiv.org/abs/2406.12216). `2024`
 - [Personallm: In- vestigating the ability of large language models to express personality traits](https://arxiv.org/abs/2504.17993). `2024`
-- [A frame- work for building adaptive intelligent virtual assis- tants](https://arxiv.org/abs/1706.05125). `2014`
-- [mind](https://arxiv.org/abs/2503.16527). `2025`
-- [Prophetchat: Enhancing dialogue generation with simulation of future conversation](https://arxiv.org/abs/2502.11528). `2022`
-- [Be- yond goldfish memory: Long-term open-domain con- versation](https://arxiv.org/abs/2404.12138). `2022`
+- [Deal or No Deal? End-to-End Learning for Negotiation Dialogues](https://arxiv.org/abs/1706.05125). `2017`
+- [LLM Generated Persona is a Promise with a Catch](https://arxiv.org/abs/2503.16527). `2025`
+- [A Survey of Personalized Large Language Models: Progress and Future Directions](https://arxiv.org/abs/2502.11528). `2025`
+- [Character is Destiny: Can Role-Playing Language Agents Make Persona-Driven Decisions?](https://arxiv.org/abs/2404.12138). `2024`
 
 ### Role-play
 
@@ -114,18 +114,18 @@ Role-play simulation enables LLMs to embody real or fictional identities through
 - [RoleBreak: Character Hallucination as a Jailbreak Attack in Role-Playing Systems](https://aclanthology.org/2025.coling-main.494/). `2025`
 - [Rolecraft-glm: Advancing person- alized role-playing in large language models](https://arxiv.org/abs/2401.09432). `2024`
 - [CharacterEval: A Chinese Benchmark for Role-Playing Conversational Agent Evaluation](https://arxiv.org/abs/2401.01275). `2024`
-- [A neural conver- sational model](https://arxiv.org/abs/2504.03206). `2015`
+- [Enhancing Personalized Multi-Turn Dialogue with Curiosity Reward](https://arxiv.org/abs/2504.03206). `2025`
 - [Autogen: En- abling next-gen LLM applications via multi-agent conversation framework](https://arxiv.org/abs/2308.08155). `2023`
 
 ### Individual User
 
 Individual user simulation grounds behavior in specific user profiles, histories, and long-term memory.
 
-- [Soulchat: Improving llms' empathy, listening, and comfort abilities through fine-tuning with multi-turn empathy conversations](https://arxiv.org/abs/2504.19413). `2023`
+- [SoulChat: Improving LLMs' Empathy, Listening, and Comfort Abilities through Fine-tuning with Multi-turn Empathy Conversations](https://aclanthology.org/2023.findings-emnlp.83/). `2023`
 - [Personalizing Dialogue Agents: I have a dog, do you have pets too?](https://arxiv.org/abs/1801.07243). `2018`
 - [Call for Customized Conversation: Customized Conversation Grounding Persona and Knowledge](https://arxiv.org/abs/2112.08619). `2022`
 - [Beyond Goldfish Memory: Long-Term Open-Domain Conversation](https://arxiv.org/abs/2107.07567). `2021`
-- [Soulchat: Improving llms' empathy, listening, and comfort abilities through fine-tuning with multi-turn empathy conversations](https://arxiv.org/abs/2504.19413). `2023`
+- [Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory](https://arxiv.org/abs/2504.19413). `2025`
 
 ### Hybrid Simulation
 
@@ -188,8 +188,6 @@ Retrieval-augmented generation (RAG) grounds user simulation in external knowled
 - [User simulation in the era of generative AI: user model- ing, synthetic data generation, and system evaluation](https://arxiv.org/abs/2501.04410). `2025`
 - [Kaucus: Knowledgeable User Simulators for Training Large Language Models](https://aclanthology.org/2024.scichat-1.8/). `2024`
 - [Preference-Based Learning with Retrieval Augmented Generation for Conversational Question Answering](https://arxiv.org/abs/2501.01881). `2025`
-- [Maximizing the spread of influence through a social network](https://arxiv.org/abs/2412.01992). `2003`
-- [Predicting clicks: estimating the click- through rate for new ads](https://arxiv.org/abs/1808.00720). `2007`
 - [Retrieval-augmented simulacra: Gen- erative agents for up-to-date and knowledge-adaptive simulations](https://arxiv.org/abs/2503.14620). `2025`
 
 ### Fine-tuning
@@ -240,9 +238,9 @@ Key conversational datasets used for training and evaluating user simulators:
 - [PersonaChat](https://arxiv.org/abs/1801.07243). `2018`
 - [Wizard-of-Wikipedia](https://openreview.net/forum?id=r1l73iRqKm). `2019`
 - [EmpatheticDialogues](https://arxiv.org/abs/1811.00207). `2019`
-- [MultiWOZ](https://arxiv.org/abs/1810.00278). `2018`
+- [MultiWOZ: A Large-Scale Multi-Domain Wizard-of-Oz Dataset for Task-Oriented Dialogue](https://arxiv.org/abs/1810.00278). `2018`
 - [Taskmaster](https://arxiv.org/abs/1909.05358). `2019`
-- [ABCD](https://arxiv.org/abs/2104.08674). `2021`
+- [ABCD: Action-Based Conversations Dataset](https://aclanthology.org/2021.naacl-main.239/). `2021`
 
 ---
 
