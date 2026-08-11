@@ -1,3 +1,5 @@
+
+
 # Awesome-LLM-Conversation-Simulation
 
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
@@ -109,7 +111,6 @@ Persona-level simulation conditions behavior on explicit demographic, psychometr
 Role-play simulation enables LLMs to embody real or fictional identities through latent persona induction.
 
 - [If an LLM were a character, would it know its own story? evaluating lifelong learning in llms](https://arxiv.org/abs/2503.23514). `2025`
-- [BLEU: A Method for Automatic Evaluation of Machine Translation](https://aclanthology.org/P02-1040/). `2002`
 - [Agentsociety: Large-scale simulation of llm-driven generative agents advances understanding of human behaviors and society](https://arxiv.org/abs/2502.08691). `2025`
 - [RoleBreak: Character Hallucination as a Jailbreak Attack in Role-Playing Systems](https://aclanthology.org/2025.coling-main.494/). `2025`
 - [Rolecraft-glm: Advancing person- alized role-playing in large language models](https://arxiv.org/abs/2401.09432). `2024`
